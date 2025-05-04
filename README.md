@@ -2,6 +2,20 @@
 
 this math note is applied to the template: https://github.com/ljcucc/math_note_template
 
+## Notetaking style
+
+This note is taken by a conversational way, two character talking to each other.
+chapter are categorized by subject, and sections are categorized by topics,
+instead of struct contents.
+
+Each section or subsection is separated as much as possible to help with organization and categorization.
+But I still hope that the topics can be connected or referenced to each other at some level.
+(Like each episode of a cartoon)
+
+Used font: [LXGW WenKai TC](https://fonts.google.com/?query=LXGW) (to match the handwriting styles I expected that I used to be writing.)
+
+## Get Started
+
 To use it, start clone the `math_note_template`, and clone this note inside `math_note_template`, then rename it to `pages`.
 
 ```bash
@@ -10,6 +24,14 @@ cd math_note_template
 git clone https://github.com/ljcucc/my-math-note.git
 mv my-math-note pages
 ```
+
+## Support and Collaboration
+
+If you like this work, or if you have more ideas or think it can be better,
+please open an issue or DM my Matrix (@ljcuxx:matrix.org).
+
+> Recently, I planned to commission stickers for the dialogue characters in this notebook.
+If you are interested in helping me or have recommended creator, welcome to send me a DM or open an issue.
 
 ## Copyright
 
