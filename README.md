@@ -2,14 +2,13 @@
 
 this math note is applied to the template: https://github.com/ljcucc/math_note_template
 
-To use it, start clone the `math_note_template`, and clone this note inside `math_note_template`, then copy the `pages.tex` to `math_note_template` from this repo.
+To use it, start clone the `math_note_template`, and clone this note inside `math_note_template`, then rename it to `pages`.
 
 ```bash
 git clone https://github.com/ljcucc/math_note_template.git
 cd math_note_template
 git clone https://github.com/ljcucc/my-math-note.git
 mv my-math-note pages
-cp -f ../pages/paegs.tex ./pages.tex
 ```
 
 ## Copyright
