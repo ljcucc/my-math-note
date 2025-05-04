@@ -1,0 +1,113 @@
+\teacherTalking{今天，我們要來聊線性代數！首先，我想問問你對於線性代數有什麼印象嗎？}
+\smallerVerticalGap \vspace{-2cm}
+
+\readerConfused{線性代數? 就是高中那個矩陣嗎？
+就是有很多數字在裡面的那個？
+然後還有一些很神奇的加和乘的方法，我看了就眼花...
+為什麼學工程的都要學這個？我唯一記得的領域就只有在計算機圖學才會用到，那個看了就頭暈。}
+\smallerVerticalGap
+
+\begin{textLeft} \begin{teacherSaid}
+看起來你對於線性代數有很多負面的觀感...沒關係這次就帶你來打破這種不好的印象！
+但講到線性代數就不能不講到「矩陣」！矩陣可幾乎是線性代數的代名詞了呢！
+雖然很多老師都會用行列式開始介紹矩陣，但我們先不要用行列式來介紹矩陣，讓我們先回歸他的本質！
+\end{teacherSaid} \end{textLeft}
+
+\section{Function}
+
+\readerQuestioning{Function? 矩陣不是一串數字嗎？他跟矩陣有什麼關係？}
+
+\teacherConfident{ % 我想要一個他生氣地說的表情
+哈哈！你可別這麼說！除了一個矩陣可以表示成一堆數字外，他其實還可以表示成其他的東西。
+\footnote{雖然說矩陣是從行列式來的，但我們先暫時忽略這種說法。}
+再講到行列式以前，我們先來走過一遍一個概念：
+}
+
+\begin{textLeft} \begin{teacherSaid}
+Function 是一個輸入輸出的關係，描述輸入是如何變成輸出的過程，就是 function。
+還記得之前高中數學課常常舉例的「函數工廠」嗎？
+\end{teacherSaid} \end{textLeft}
+
+\smallerVerticalGap
+\readerExcitement{記得！
+簡單來說就是當我們把Function比喻成一間工廠，\textbf{我們把「輸入」當作是丟進工廠的「原料」，而 Function 本身就是這間工廠裡的「生產線」或「製造過程」，經過這道程序處理過後，工廠會產出經過加工的「成品」，也就是我們的「輸出」。}
+}
+\smallerVerticalGap
+\irasutoya{ベルトコンベアで製造した何かを運んでいる様子を描いたイラストです。}{10cm}
+\begin{textLeft} \begin{teacherSaid}
+沒錯，讓我們延續這種概念！% 那既然你都記得，就讓我們開始講
+\end{teacherSaid} \end{textLeft}
+
+\subsection{Function 和 矩陣的關係}
+
+\teacherConfident{在講矩陣之前，我們要先對 Function 有一定的了解！尤其是多變數輸入的 Function！}
+
+\smallerVerticalGap \vspace{-2cm}
+
+\readerQuestioning{
+多變數輸入的 Function？像是這樣嗎？
+\begin{equation*}
+  y = f(a,b,c,...)
+\end{equation*}
+}
+
+\begin{textLeft} \begin{teacherSaid}
+沒錯，我們還可以這樣舉例： \\
+
+假設你去市場買水果，買了蘋果、香蕉和橘子。
+蘋果的單價是 $p_a$，香蕉的單價是 $p_b$，橘子的單價是 $p_c$。
+你買了 $n_a$ 個蘋果，$n_b$ 根香蕉，$n_c$ 個橘子。
+
+那麼你總共要付多少錢呢？
+這個總金額 $C$ 就會是：
+$$ C = n_a \cdot p_a + n_b \cdot p_b + n_c \cdot p_c $$
+
+在這裡，$C$ 是輸出的結果，而輸入是什麼呢？
+輸入就是你買的每一種水果的「數量」和「單價」，也就是 $(n_a, n_b, n_c, p_a, p_b, p_c)$ 這六個變數。
+所以，總金額 $C$ 可以看作是一個關於這六個變數的函數：
+$$ C = f(n_a, n_b, n_c, p_a, p_b, p_c) $$
+這就是一個很典型的「多變數輸入」的函數！
+
+\irasutoya{SUPER MARKET}{10cm}
+
+
+\end{teacherSaid} \end{textLeft}
+
+\readerConfused{這個我知道，但是許多函數的情境並不是這樣啊...有很多次的函數，有很多很複雜的函數才是工程上最常用的不是嗎？例如 $sin \theta, cos \theta$...那你又要怎麼解釋？}
+
+\begin{textLeft} \begin{teacherSaid}
+其實，對於再複雜的過程，我們都可以視作為一個 Function。
+而回過頭來，線型函數是所有函數裡最簡單的一種: \\
+
+\begin{equation*}
+    y = ax + b
+\end{equation*}
+
+別看他只有乘法與加法，我們只要用近似的方法，他可以模擬、描述各種複雜的函數。只要我們的區間夠小，再複雜的函數也可以被描述！\\
+
+最簡單的方式就是在一個曲線上取一點，然後通過那點的斜率來模擬描述。\\
+
+\begin{tikzpicture}
+\begin{axis}
+\pgfplotsset{
+  axis line style={teacherColor},
+  every axis label/.append style ={teacherColor},
+  every tick label/.append style={teacherColor}
+}
+\addplot [color=teacherColor]{x*x};
+% Draw a domain
+\addplot [color=teacherColor, dashed]
+      coordinates { (0, 10) (0, -10)};
+\addplot [color=teacherColor, dashed]
+      coordinates { (2, 10) (2, -10)};
+\addplot [color=teacherColor]{x*2-1};
+\end{axis}
+\end{tikzpicture}
+
+\end{teacherSaid} \end{textLeft}
+
+\teacherConfident{
+如果這個函數是離散的點，在機器學習中還有種方法叫 Linear Regression ，可以讓我們在眾多數據裡找到一個 $y=ax+b$ 去描述、預測一個風雲不測的系統或情況。
+\footnote{當然這不能預測男女朋友的心情...}
+總之！
+}
